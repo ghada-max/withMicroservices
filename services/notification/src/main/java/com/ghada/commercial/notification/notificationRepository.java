@@ -1,4 +1,6 @@
 package com.ghada.commercial.notification;
 
-public interface notificationRepository {
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface notificationRepository extends MongoRepository<PaymentConfirmation,String> {
 }

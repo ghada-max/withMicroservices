@@ -1,4 +1,4 @@
-package com.ghada.payment.payment;
+package com.ghada.commercial.payment;
 
 import java.math.BigDecimal;
 

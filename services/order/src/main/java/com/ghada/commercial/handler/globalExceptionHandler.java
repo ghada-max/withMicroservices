@@ -1,10 +1,12 @@
 package com.ghada.commercial.handler;
 
 
+import com.ghada.commercial.Exception.BuisnessException;
 import com.ghada.commercial.exception.ProductPurchaseException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -15,16 +17,15 @@ import java.util.HashMap;
 @RestControllerAdvice
 public class globalExceptionHandler {
 
-    @ExceptionHandler(ProductPurchaseException.class)
-    public ResponseEntity<String> handle(ProductPurchaseException exp){
-        return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                .body(exp.getMessage());
-    }
-
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity<String> handle(EntityNotFoundException exp){
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(exp.getMessage());
+    }
+    @ExceptionHandler(BuisnessException.class)
+    public ResponseEntity<String> handle(BuisnessException exp){
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(exp.getMsg());
     }
 
 

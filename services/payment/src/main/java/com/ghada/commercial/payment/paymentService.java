@@ -1,4 +1,6 @@
-package com.ghada.payment.payment;
+package com.ghada.commercial.payment;
+import com.ghada.commercial.payment.notification.PaymentNotificationRequest;
+import com.ghada.commercial.payment.notification.notificationProducer;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -8,10 +10,20 @@ import org.springframework.stereotype.Service;
 public class paymentService {
     private final paymentRepository repository;
     private final paymentMapper mapper;
-
+    private final notificationProducer notificationProducer;
     public Integer createPayment(paymentRequest request)
     {
         var payment =repository.save(mapper.topayment(request));
-        return null;
+        notificationProducer.sendNotification(
+                new PaymentNotificationRequest(
+                   request.orderReference(),
+                        request.amount(),
+                        request.paymentMethod(),
+                        request.customer().firstname(),
+                        request.customer().lastname(),
+                        request.customer().email()
+                )
+        );
+        return payment.getId();
     }
 }

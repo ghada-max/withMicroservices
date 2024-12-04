@@ -1,5 +1,5 @@
-package com.ghada.payment.payment.notification;
-import com.ghada.payment.payment.paymentMethod;
+package com.ghada.commercial.payment.notification;
+import com.ghada.commercial.payment.paymentMethod;
 
 import java.math.BigDecimal;
 

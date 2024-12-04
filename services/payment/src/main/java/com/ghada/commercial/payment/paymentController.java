@@ -1,4 +1,4 @@
-package com.ghada.payment.payment;
+package com.ghada.commercial.payment;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,12 @@
 package com.ghada.commercial.notification;
 
-public record Product() {
+import java.math.BigDecimal;
+
+public record Product(
+        Integer productId,
+        String name,
+        String description,
+        BigDecimal price,
+        double quantity
+) {
 }

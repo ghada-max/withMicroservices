@@ -1,6 +1,5 @@
-package com.ghada.payment.payment;
+package com.ghada.commercial.payment;
 
-import org.hibernate.Internal;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
